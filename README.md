@@ -2,10 +2,16 @@
 Creates Terbium Page Experiences for a project using Terbium SDK.
 
 **Parameters**
-> '-p, --path [type]', 'Virtual path to add terbium page.'
-> '-n, --name [type]', 'Name of the file to create.'
-> '-e, --extend [type]', 'Extend the terbium class out.'
-> '-x, --experience [type]', 'Space delimited experiences pe te we etc.'
+
+'-p, --path [type]', 'Virtual path to add terbium page.'
+
+'-n, --name [type]', 'Name of the file to create.'
+
+'-e, --extend [type]', 'Extend the terbium class out.'
+
+'-x, --experience [type]', 'Space delimited experiences pe te we etc.'
+
+
 
 
 **Basic Usage**
