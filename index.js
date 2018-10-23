@@ -109,6 +109,9 @@ function JSContent(name, extend){
 		jsString += 'class TerbiumScript { \n';
 	}
     jsString += '\tconstructor(id) { \n';
+	if(extend){
+		jsString += '\t\super(); \n';
+	}
     jsString += '\t\tthis.id = id; \n';
     jsString += '\t\tthis.page = null; \n';
     jsString += '\t} \n';
