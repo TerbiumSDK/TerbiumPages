@@ -1,0 +1,6 @@
+# OS X
+.DS_Store
+
+# Cordova Specific Ignores
+/node_modules
+/platforms

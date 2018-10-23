@@ -1,0 +1,35 @@
+{
+  "name": "terbiumsdk-pages",
+  "version": "1.0.2",
+  "description": "Module for creating terbium pages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: No TerbiumSDK Tests Installed.\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerbiumSDK/TerbiumPages.git"
+  },
+  "keywords": [
+    "TerbiumSDK",
+    "Cordova",
+	"Electron",
+	"Node JS",
+	"ASP.NET",
+	"IOS",
+	"Android",
+	"OSX",
+	"Windows",
+	"UI"
+  ],
+  "author": "Christopher Bishop",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TerbiumSDK/Cordova/issues"
+  },
+  "homepage": "https://github.com/TerbiumSDK/Cordova#readme",
+   "dependencies": {
+    "commander": "^2.19.0",
+    "shelljs": "^0.8.2"
+  } 
+}
