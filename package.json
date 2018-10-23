@@ -22,6 +22,10 @@
 	"Windows",
 	"UI"
   ],
+  "preferGlobal": true,
+  "bin": {
+      "terbiumsdk-pages": "index.js"
+  }, 
   "author": "Christopher Bishop",
   "license": "MIT",
   "bugs": {
