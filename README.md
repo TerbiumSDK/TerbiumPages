@@ -1,8 +1,8 @@
 # Terbium SDK Pages
 Creates Terbium Page Experiences for a project using Terbium SDK.\
 **Install Global**
-npm i -g terbiumsdk-pages\
-]
+\npm i -g terbiumsdk-pages\
+\
 **Parameters**\
 '-p, --path [type]', 'Virtual path to add terbium page.'\
 '-n, --name [type]', 'Name of the file to create.'\
