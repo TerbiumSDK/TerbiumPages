@@ -1,6 +1,6 @@
 {
   "name": "terbiumsdk-pages",
-  "version": "14.0.0.001",
+  "version": "14.0.1",
   "description": "Module for creating terbium pages.",
   "main": "index.js",
   "scripts": {
