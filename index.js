@@ -97,7 +97,7 @@ function CSSContent(name){
 }
 
 function HTMLContent(name){
-	return '<tb-section>\n\\t' + name + '\n</tb-section>';
+	return '<tb-section>\n\t' + name + '\n</tb-section>';
 }
 
 function JSContent(name, extend) {
