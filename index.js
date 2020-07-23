@@ -4,21 +4,13 @@ const fs = require('fs');
 const shell = require('shelljs');
 
 program
-  .version('1.0.2') 
-  .option('-p, --path [type]', 'Virtual path to add terbium page.')
-  .option('-n, --name [type]', 'Name of the file to create.')
-  .option('-e, --extend [type]', 'Extend the terbium class out.')
-  .option('-x, --experience [type]', 'Space delimited experiences pe te we etc.')
+  .version('14.0.0') 
+  .option('-p, --path [type]', 'Virtual path to add terbium experience.')
+  .option('-n, --name [type]', 'Name of the experience page.')
+  .option('-e, --extend [type]', 'Extend the TerbiumBlock class.')
+  .option('-x, --experience [type]', 'Space delimited experiences to include pe te we etc.')
   .parse(process.argv);
-  
-/*
-console.log('path', program.path);
-console.log('name', program.name);
-console.log('extend', program.extend);
-console.log('current path->', process.cwd());
-console.log('experience->', program.experience);
-*/
-
+   
 if(program.path != undefined && program.name != undefined){
 	CreateStructure();
 }
@@ -29,7 +21,15 @@ function CreateStructure(){
 		shell.mkdir('-p', program.path + '/pe');
 		shell.mkdir('-p', program.path + '/te');
 		shell.mkdir('-p', program.path + '/we');
-	}
+
+		shell.mkdir('-p', program.path + '/pe/css');
+		shell.mkdir('-p', program.path + '/te/css');
+        shell.mkdir('-p', program.path + '/we/css');
+
+		shell.mkdir('-p', program.path + '/pe/js');
+		shell.mkdir('-p', program.path + '/te/js');
+		shell.mkdir('-p', program.path + '/we/js');
+    }
 	else{ 
 		let exps = program.experience.split(' ');
 		for(var i = 0; i < exps.length; i++){
@@ -38,7 +38,7 @@ function CreateStructure(){
 		} 
 	}
 	WriteFiles();
-	console.log('Terbium Page has finished creating files...');
+	console.log('TerbiumSDK has finished creating files...');
 };
 
 function WriteFiles(){
@@ -54,13 +54,13 @@ function WriteFiles(){
 	 
 	for(var i = 0; i < exps.length; i++){
 		let item = exps[i].trim();
-		fs.writeFile(program.path + '/' + item + '/' + program.name + '.css', CSSContent(program.name), function(err) { 
+		fs.writeFile(program.path + '/' + item + '/css/' + program.name + '.css', CSSContent(program.name), function(err) { 
 			if(err){
 				console.log('Error creating style->', err);
 			}
 		}); 	
 
-		fs.writeFile(program.path + '/' + item + '/' + program.name + '.js', JSContent(program.name, program.extend), function(err) { 
+		fs.writeFile(program.path + '/' + item + '/js/' + program.name + '.js', JSContent(program.name, program.extend), function(err) { 
 			if(err){
 				console.log('Error creating class->', err);
 			}
@@ -93,36 +93,39 @@ function ReplaceString(str, find, replace) {
 };
 
 function CSSContent(name){
-	return '.' + name + ' { }';
+	return '.page-css { }';
 }
 
 function HTMLContent(name){
-	return '<div>' + name + '</div>';
+	return '<tb-section>\n\\t' + name + '\n</tb-section>';
 }
 
-function JSContent(name, extend){
-	var jsString = '';
-	if(extend){
-		jsString += 'class TerbiumScript extends ' + extend + ' { \n';
-	}
-	else{
-		jsString += 'class TerbiumScript { \n';
-	}
-    jsString += '\tconstructor(id) { \n';
-	if(extend){
-		jsString += '\t\super(); \n';
-	}
-    jsString += '\t\tthis.id = id; \n';
-    jsString += '\t\tthis.page = null; \n';
+function JSContent(name, extend) {
+    var jsString = '';
+    if (extend) {
+        jsString += 'class TerbiumBlock extends ' + extend + ' { \n';
+    }
+    else {
+        jsString += 'class TerbiumBlock { \n';
+    }
+    jsString += '\tconstructor() { \n';
+    if (extend) {
+        jsString += '\t\super(); \n';
+    }
     jsString += '\t} \n';
-	jsString += ' \n';
+    jsString += ' \n';
     jsString += '\trender(params) { \n';
+
+    jsString += '\t\treturn new Promise((resolve, reject) => {\n';
+    jsString += '\t\t\tresolve();\n';
+    jsString += '\t\t});\n';
+
     jsString += '\t} \n';
-	jsString += ' \n';
+    jsString += ' \n';
     jsString += '\tdispose() { \n';
     jsString += '\t}  \n';
-	jsString += '} \n';
-	return jsString;
+    jsString += '} \n';
+    return jsString;
 }
 
 

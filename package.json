@@ -1,6 +1,6 @@
 {
   "name": "terbiumsdk-pages",
-  "version": "1.0.7",
+  "version": "14.0.0",
   "description": "Module for creating terbium pages.",
   "main": "index.js",
   "scripts": {
@@ -13,27 +13,27 @@
   "keywords": [
     "TerbiumSDK",
     "Cordova",
-	"Electron",
-	"Node JS",
-	"ASP.NET",
-	"IOS",
-	"Android",
-	"OSX",
-	"Windows",
-	"UI"
+    "Electron",
+    "Node JS",
+    "ASP.NET",
+    "IOS",
+    "Android",
+    "OSX",
+    "Windows",
+    "UI"
   ],
   "preferGlobal": true,
   "bin": {
-      "terbiumsdk-pages": "index.js"
-  }, 
+    "terbiumsdk-pages": "index.js"
+  },
   "author": "Christopher Bishop",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/TerbiumSDK/Cordova/issues"
   },
   "homepage": "https://github.com/TerbiumSDK/Cordova#readme",
-   "dependencies": {
+  "dependencies": {
     "commander": "^2.19.0",
     "shelljs": "^0.8.2"
-  } 
+  }
 }
